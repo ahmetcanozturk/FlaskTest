@@ -4,8 +4,9 @@ It contains the definition of routes and views for the application.
 """
 
 import ctest
+import testfigure
 
-from flask import Flask, request
+from flask import Flask, request, send_file
 from flask_restful import Resource, Api
 
 app = Flask(__name__)
@@ -18,7 +19,13 @@ class test(Resource):
     def get(self):
         return ctest.result()
 
+class picture(Resource):
+    def get(self):
+        testfigure.picture()
+        return send_file('images/test.png', mimetype='image/png')
+
 api.add_resource(test, '/test')
+api.add_resource(picture, '/images/test')
 
 #@app.route('/')
 #def hello():

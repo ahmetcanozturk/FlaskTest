@@ -37,6 +37,19 @@ namespace FlaskTestUI.Controllers
             return View(list);
         }
 
+        public async Task<IActionResult> Picture()
+        {
+            var list = new List<Pay>();
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("http://localhost:5555/images/test"))
+                {
+                    var apiResponse = await response.Content.ReadAsByteArrayAsync();
+                    return File(apiResponse, "image/png");
+                }
+            }
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
