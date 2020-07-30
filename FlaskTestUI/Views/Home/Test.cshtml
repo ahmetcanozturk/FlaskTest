@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FlaskTestUI.Models.Pay>
+
+@{
+    ViewData["Title"] = "Test";
+}
+
+<h1>Test</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tarih
+            </th>
+            <th>
+                Yatırımcı
+            </th>
+            <th>
+                Emir
+            </th>
+            <th>
+                Fiyat
+            </th>
+            <th>
+                Hacim
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.taginvestorname_investorid_)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.volume)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

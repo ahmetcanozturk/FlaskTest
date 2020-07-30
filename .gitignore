@@ -1,0 +1,8 @@
+.vs
+.git
+FlaskTestApi/__pycache__
+FlaskTestApi/env
+FlaskTestApi/obj
+\FlaskTestUI/bin
+\FlaskTestUI/obj
+packages
